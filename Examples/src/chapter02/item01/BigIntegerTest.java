@@ -7,9 +7,9 @@ public class BigIntegerTest {
         BigInteger instance3 = BigInteger.valueOf(0);
         BigInteger instance4 = BigInteger.ZERO;
 
-        System.out.println(instance1==instance2);
-        System.out.println(instance2==instance3);
-        System.out.println(instance1==instance4);
-        System.out.println(instance3==instance4);
+        System.out.println(instance1==instance2); // false
+        System.out.println(instance2==instance3); // true
+        System.out.println(instance1==instance4); // false
+        System.out.println(instance3==instance4); // true
     }
 }
