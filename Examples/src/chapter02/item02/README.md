@@ -21,6 +21,7 @@
  ```
  2. 자바빈 패턴(JavaBeans pattern) [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/chapter02/item02/NutritionFacts_JavaBeans.java)
     * 인자 없는 생성자를 호출하여 객체부터 만든 다음, 설정 메서드(setter)를 호출하는 방법
+    * (롬복을 사용할 경우 클래스에 @Bulider 어노테이션 붙여서 사용할 수 있다)
  ```
  NutritionFacts_JavaBeans cocaCola = new NutritionFacts_JavaBeans();
  cocaCola.setServingSize(240);
