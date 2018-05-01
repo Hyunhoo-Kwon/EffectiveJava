@@ -8,3 +8,4 @@
  - [규칙 2.](https://github.com/Hyunhoo-Kwon/EffectiveJava/tree/master/Examples/src/chapter02/item02) 생성자 인자가 많을 때는 Builder 패턴 적용을 고려하라
  - [규칙 3.](https://github.com/Hyunhoo-Kwon/EffectiveJava/tree/master/Examples/src/chapter02/item03) private 생성자나 enum 자료형은 싱글턴 패턴을 따르도록 설계하라
  - [규칙 4.](https://github.com/Hyunhoo-Kwon/EffectiveJava/tree/master/Examples/src/chapter02/item04) 객체 생성을 막을 때는 private 생성자를 사용하라
+ - [규칙 5.](https://github.com/Hyunhoo-Kwon/EffectiveJava/tree/master/Examples/src/chapter02/item05) 불필요한 객체는 만들지 말라
