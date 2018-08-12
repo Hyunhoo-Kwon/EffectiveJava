@@ -5,7 +5,7 @@
  ```
  publice BigInteger(...) {...}
  ```
- 2. 정적 팩토리 메서드 [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/chapter02/item01/BigInteger.java)
+ 2. 정적 팩토리 메서드 [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/main/java/chapter02/item01/BigInteger.java)
  ```
  public static BigInteger valueOf(...) {...}
  ```
