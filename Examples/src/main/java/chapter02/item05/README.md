@@ -12,16 +12,16 @@
  ```
  String s = "stringette"
  ```
- * string constant pool 참고 자료: [https://medium.com/@joongwon - Java String 의 메모리에 대한 고찰](https://medium.com/@joongwon/string-%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0-57af94cbb6bc)
+ * string constant pool 참고: [https://medium.com/@joongwon - Java String 의 메모리에 대한 고찰](https://medium.com/@joongwon/string-%EC%9D%98-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0-57af94cbb6bc)
  
 ### 생성자와 정적 팩터리 메소드를 함께 제공하는 변경 불가능 클래스의 경우, 생성자 대신 정적 팩터리 메서드를 이용 (Boolean 클래스 예제)
  * new Boolean(String)대신 Boolean.valueof(String)을 이용하면 불필요한 객체 생성을 피할 수 있다.
  
 ### 메소드 내부에서 동일 객체를 항상 생성하는 코드는 정적 초기화 블록(static initializer)을 통해 개선
- 1. Person 클래스 예제 [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/chapter02/item05/Person.java)
+ 1. Person 클래스 예제 [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/main/java/chapter02/item05/Person.java)
     * isBabyBoomer 메소드는 호출될 때마다 Calender 객체 하나, TimeZone 객체 하나, Date 객체 두 개 생성
     * isBabyBoomer 100만번 호출 성능: 1003ms
- 2. Person_Refactor 클래스 예제 (정적 초기화 블록을 통해 개선) [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/chapter02/item05/Person_Refactor.java)
+ 2. Person_Refactor 클래스 예제 (정적 초기화 블록을 통해 개선) [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/main/java/chapter02/item05/Person_Refactor.java)
     * Calneder, TimeZone, Date 객체를 클래스가 초기화 될 때 한번 만든다.
     * isBabyBoomer 100만번 호출 성능: 16ms
     
