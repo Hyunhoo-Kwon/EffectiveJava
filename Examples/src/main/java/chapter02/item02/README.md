@@ -27,7 +27,7 @@
  cocaCola.setServings(80);
  ...
  ```
- 3. 빌더 패턴(Builder Pattern) [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/main/java/chapter02/item02/NutritionFacts_Builder.java)
+ 3. 빌더 패턴(Builder Pattern) [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/main/java/chapter02/item02/NutritionFacts_Builder.java) [[테스트 코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/test/java/chapter02/item02/NutritionFactsBuilderTest.java)
     * 필요한 객체를 직접 생성하는 대신, 빌더 객체를 먼저 만든 후 빌더 객체에 정의된 설정 메서드들을 호출하여 인자들을 추가하는 방법
     * (롬복을 사용할 경우 클래스에 @Bulider 어노테이션 붙여서 사용할 수 있다)
  ```
