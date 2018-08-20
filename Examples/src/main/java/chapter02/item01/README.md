@@ -21,7 +21,7 @@
  * 같은 signiture를 갖는 생성자를 여러 개 정의할 필요가 있을 때는 생성자보다 정적 팩토리 메서드로 정의
    * 메서드 이름을 보면 기능이 명확히 드러나도록 작명
  
-#### (장점 2) 생성자와 달리 호출할 때마다 새로운 객체를 생성할 필요가 없다
+#### (장점 2) 생성자와 달리 호출할 때마다 새로운 객체를 생성할 필요가 없다 [[테스트 코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/test/java/chapter02/item01/BigIntegerTest.java)
  * 싱글턴패턴, BigInteger.valueOf(long val) 메서드는 이 기법을 활용한 좋은 사례
     * 객체를 반복해서 반환할 수 있으므로 어떤 시점에 어떤 객체가 얼마나 존재하는지 정밀하게 제어할 수 있다
     * 이렇게 구현된 클래스는 equals(Object) 대신 == 연산자를 사용하여 비교할 수 있으므로 성능이 향상된다
