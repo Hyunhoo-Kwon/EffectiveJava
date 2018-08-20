@@ -20,10 +20,10 @@
 ### 메소드 내부에서 동일 객체를 항상 생성하는 코드는 정적 초기화 블록(static initializer)을 통해 개선
  1. Person 클래스 예제 [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/main/java/chapter02/item05/Person.java)
     * isBabyBoomer 메소드는 호출될 때마다 Calender 객체 하나, TimeZone 객체 하나, Date 객체 두 개 생성
-    * isBabyBoomer 100만번 호출 성능: 1003ms
- 2. Person_Refactor 클래스 예제 (정적 초기화 블록을 통해 개선) [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/main/java/chapter02/item05/Person_Refactor.java)
+    * isBabyBoomer 100만번 호출 성능: 1.079070247s
+ 2. PersonRefactor 클래스 예제 (정적 초기화 블록을 통해 개선) [[코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/main/java/chapter02/item05/PersonRefactor.java)
     * Calneder, TimeZone, Date 객체를 클래스가 초기화 될 때 한번 만든다.
-    * isBabyBoomer 100만번 호출 성능: 16ms
+    * isBabyBoomer 100만번 호출 성능: 0.014479830s
     
 ### 자동 객체화(autoboxing)로 인한 불필요한 객체 생성
  * 불필요한 객체 생성 예제
