@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class Person_Refactor {
+public class PersonRefactor {
     private final Date birthDate;
 
     private static final Date BOOM_START;
@@ -18,7 +18,7 @@ public class Person_Refactor {
         BOOM_END = gmtCal.getTime();
     }
 
-    public Person_Refactor(Date birthDate) {
+    public PersonRefactor(Date birthDate) {
         this.birthDate = birthDate;
     }
 
