@@ -16,3 +16,4 @@
 ### chapter03. 모든 객체의 공통 메서드
  > Object 클래스에 정의된 비-final 메서드(equals, hashCode, toString, clone, finalize)와 Comparable.compareTo 메서드가 언제, 어떻게 재정의 하는지 일반 규약에 따라 살펴본다.
  - [규칙 8.](https://github.com/Hyunhoo-Kwon/EffectiveJava/tree/master/Examples/src/main/java/chapter03/item08) equals를 재정의할 때는 일반 규약을 따르라
+ - [규칙 9.](https://github.com/Hyunhoo-Kwon/EffectiveJava/tree/master/Examples/src/main/java/chapter03/item09) equals를 재정의할 때는 반드시 hashCode도 재정의하라
