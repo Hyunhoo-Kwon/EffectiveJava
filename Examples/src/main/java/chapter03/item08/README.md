@@ -67,18 +67,18 @@
    
 ### equals 메서드 구현 지침
  1. == 연산자를 사용하여 equals의 인자가 자기 자신인지 검사: 일치하는 경우 true 반환.
-   * 성능 최적화를 위한 것
-   ```
-   if(o == this)
-       return true;
-   ```
+     * 성능 최적화를 위한 것
+     ```
+     if(o == this)
+         return true;
+     ```
  2. instanceof 연산자를 사용하여 인자의 자료형이 정확한지 검사: 일치하지 않는 경우 false 반환.
-   * null에 대한 비 동치성 검사도 포함된다: instanceof 연산자를 첫 번째 피연산자가 null이면 두 번째 피연산자의 자료형에 상관없이 무조건 false 반환. (o == null 검사 불필요)
-   * 보통 인자의 자료형은 equals가 정의된 클래스와 같아야 한다
-   ```
-   if( !(o instanceof MyType) )
-       return false;
-   ```
+     * null에 대한 비 동치성 검사도 포함된다: instanceof 연산자를 첫 번째 피연산자가 null이면 두 번째 피연산자의 자료형에 상관없이 무조건 false 반환. (o == null 검사 불필요)
+     * 보통 인자의 자료형은 equals가 정의된 클래스와 같아야 한다
+     ```
+     if( !(o instanceof MyType) )
+         return false;
+     ```
    * 인터페이스의 equals 규약이 해당 인터페이스를 구현하는 여러 클래스의 모든 객체를 비교할 수 있도록 정의한 경우 instanceof의 피연산자로 해당 인터페이스를 사용해야 한다
      * Set, List, Map, Map.Entry와 같은 컬렉션 인터페이스들이 이런 특성을 가지고 있다
      ```
@@ -94,25 +94,25 @@
      assertThat(hashSet.equals(treeSet), is(true));
      ```
  3. equlas의 인자를 정확한 자료형으로 변환하라
-   * instanceof 검사로 인해 형 변환은 반드시 성공
-   ```
-   MyType mt = (MyType) o
-   ```
+     * instanceof 검사로 인해 형 변환은 반드시 성공
+     ```
+     MyType mt = (MyType) o
+     ```
  4. 중요 필드 각각이 인자로 주어진 객체의 해당 필드와 일치하는지 검사: 모두 일치하는 경우 true 반환. 그렇지 않는 경우 false 반환.
-   * float, double 이외의 기본 자료형은 == 연산자로 비교
-   * float 필드는 Float.compare 메서드를, double 필드는 Double.compare 메서드를 사용해서 비교
-     * Float.NaN, -0.0f 상수 사용시 == 연산자는 잘못된 결과 반환
-     ```
-     Float.NaN==Float.NaN // flase 반환. 잘못된 결과.
-     0.0f==-0.0f // true 반환. 잘못된 결과.
-     ```
-   * 객체 참조 필드는 equals를 재귀적으로 호출하여 검사
-     * null이 허용되는 필드는 아래의 숙어 사용
-     ```
-     field == null ? o.field == null : field.equals(o.field)
-     ```
-   * equals 메서드의 성능은 필드 비교 순서에 영향을 받는다
-     * 가능성이 가장 높거나 비교 비용이 낮은 필드부터 비교
+     * float, double 이외의 기본 자료형은 == 연산자로 비교
+     * float 필드는 Float.compare 메서드를, double 필드는 Double.compare 메서드를 사용해서 비교
+       * Float.NaN, -0.0f 상수 사용시 == 연산자는 잘못된 결과 반환
+       ```
+       Float.NaN==Float.NaN // flase 반환. 잘못된 결과.
+       0.0f==-0.0f // true 반환. 잘못된 결과.
+       ```
+     * 객체 참조 필드는 equals를 재귀적으로 호출하여 검사
+       * null이 허용되는 필드는 아래의 숙어 사용
+       ```
+       field == null ? o.field == null : field.equals(o.field)
+       ```
+     * equals 메서드의 성능은 필드 비교 순서에 영향을 받는다
+       * 가능성이 가장 높거나 비교 비용이 낮은 필드부터 비교
   5. equals 메서드 구현을 끝냈다면, 대칭성, 추이성, 일관성의 세 속성이 만족되는지 검토
 
 ### equals 구현 시 주의사항
