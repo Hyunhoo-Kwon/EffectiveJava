@@ -86,6 +86,7 @@
          return false;
      ```
      * 동일한 데이터를 갖는 TreeSet과 HashSet 비교 시 true 반환
+     * [[테스트코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/test/java/chapter03/item08/SetTest.java)
      ```
      List<String> list = Arrays.asList("TreeSet", "HashSet", "Equals", "True");
      HashSet<String> hashSet = new HashSet<String>(list);
@@ -123,12 +124,14 @@
 ### lombok @EqualsAndHashCode 구현 예제
   * lombok의 @EqualsAndHashCode 사용 시 equals 메서드는 위의 구현 지침 4단계 + canEqual 검사로 정의된다.
     * canEqual 메서드: 구현 지침 4단계에 따라 슈퍼클래스와 서브클래스에 equals 메서드 정의 시 다음과 같이 일반 규약이 깨지는 경우가 발생한다.
+    * [[구현코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/main/java/chapter03/item08/SubClass.java)[[테스트코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/test/java/chapter03/item08/SubClassTest.java)
     ```
     // 대칭성 위반
-    super.equals(sub) == true
-    sub.equals(super) == false
+    superClass.equals(subClass) == true
+    subClass.equals(superClass) == false
     ```
   * ref. https://projectlombok.org/features/EqualsAndHashCode
+  * [[구현코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/main/java/chapter03/item08/EqualsAndHashCodeExample.java)[[테스트코드]](https://github.com/Hyunhoo-Kwon/EffectiveJava/blob/master/Examples/src/test/java/chapter03/item08/EqualsAndHashCodeExampleTest.java)
   ```
   public class EqualsAndHashCodeExample {
       private String name;
@@ -155,10 +158,10 @@
           if (Double.compare(this.score, other.score) != 0) return false;
           if (!Arrays.deepEquals(this.tags, other.tags)) return false;
           return false;
-          
-          protected boolean canEqual(Object other) {
-              return other instanceof EqualsAndHashCodeExample;
-          }
+      }
+      
+      protected boolean canEqual(Object other) {
+          return other instanceof EqualsAndHashCodeExample;
       }
   }
   ```
