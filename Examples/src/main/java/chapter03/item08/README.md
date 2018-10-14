@@ -113,9 +113,52 @@
        ```
      * equals 메서드의 성능은 필드 비교 순서에 영향을 받는다
        * 가능성이 가장 높거나 비교 비용이 낮은 필드부터 비교
-  5. equals 메서드 구현을 끝냈다면, 대칭성, 추이성, 일관성의 세 속성이 만족되는지 검토
+  5. equals 메서드 구현을 끝냈다면, 대칭성, 추이성, 일관성의 세 속성이 만족되는지 검토 및 단위 테스트
 
 ### equals 구현 시 주의사항
  * equals 구현 시 hashCode도 재정의하라
  * equals 메서드의 인자 형을 Object에서 다른것으로 바꾸지 마라
    * 인자형 변경시 Object.equals를 재정의하는 것이 아닌 오버로딩이다. @Override 키워드 사용으로 이런 실수는 피할 수 있다.
+
+### lombok @EqualsAndHashCode 구현 예제
+  * lombok의 @EqualsAndHashCode 사용 시 equals 메서드는 위의 구현 지침 4단계 + canEqual 검사로 정의된다.
+    * canEqual 메서드: 구현 지침 4단계에 따라 슈퍼클래스와 서브클래스에 equals 메서드 정의 시 다음과 같이 일반 규약이 깨지는 경우가 발생한다.
+    ```
+    // 대칭성 위반
+    super.equals(sub) == true
+    sub.equals(super) == false
+    ```
+  * ref. https://projectlombok.org/features/EqualsAndHashCode
+  ```
+  public class EqualsAndHashCodeExample {
+      private String name;
+      private double score;
+      private String[] tags;
+      
+      ...
+      
+      @Override public boolean equals(Object o) {
+          // 1. 자기 자신인지 검사
+          if (o == this) return true;
+          
+          // 2. 자료형 검사
+          if (!(o instanceof EqualsAndHashCodeExample)) return false;
+          
+          // 3. 자료형 변환
+          EqualsAndHashCodeExample other = (EqualsAndHashCodeExample) o;
+          
+          // canEqual 검사
+          if (!other.canEqual((Object)this)) return false;
+          
+          // 4. 중요 필드 비교
+          if (this.getName() == null ? other.getName() != null : !this.getName().equals(other.getName())) return false;
+          if (Double.compare(this.score, other.score) != 0) return false;
+          if (!Arrays.deepEquals(this.tags, other.tags)) return false;
+          return false;
+          
+          protected boolean canEqual(Object other) {
+              return other instanceof EqualsAndHashCodeExample;
+          }
+      }
+  }
+  ```
