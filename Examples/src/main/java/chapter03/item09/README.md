@@ -37,3 +37,17 @@
  * result 곱셈은 필드 순서에 따라 계산 결과가 달라지도록 만든다
    * result 곱셈이 없을 경우 순서만 바뀐 모든 문자열의 해시 코드는 동일했을 것이다
    
+### lombok @EqualsAndHashCode 구현 예제
+ * lombok의 @EqualsAndHashCode 사용 시 hashCode 메서드
+ * ref. https://projectlombok.org/features/EqualsAndHashCode
+ ```
+ @Override public int hashCode() {
+     final int PRIME = 59;
+     int result = 1;
+     final long temp1 = Double.doubleToLongBits(this.score);
+     result = (result*PRIME) + (this.name == null ? 43 : this.name.hashCode());
+     result = (result*PRIME) + (int)(temp1 ^ (temp1 >>> 32));
+     result = (result*PRIME) + Arrays.deepHashCode(this.tags);
+     return result;
+ }
+ ```
