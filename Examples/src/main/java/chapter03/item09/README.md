@@ -41,13 +41,21 @@
  * lombok의 @EqualsAndHashCode 사용 시 hashCode 메서드
  * ref. https://projectlombok.org/features/EqualsAndHashCode
  ```
- @Override public int hashCode() {
-     final int PRIME = 59;
-     int result = 1;
-     final long temp1 = Double.doubleToLongBits(this.score);
-     result = (result*PRIME) + (this.name == null ? 43 : this.name.hashCode());
-     result = (result*PRIME) + (int)(temp1 ^ (temp1 >>> 32));
-     result = (result*PRIME) + Arrays.deepHashCode(this.tags);
-     return result;
+ public class EqualsAndHashCodeExample {
+     private String name;
+     private double score;
+     private String[] tags;
+ 
+     ...
+     
+     @Override public int hashCode() {
+         final int PRIME = 59;
+         int result = 1;
+         final long temp1 = Double.doubleToLongBits(this.score);
+         result = (result*PRIME) + (this.name == null ? 43 : this.name.hashCode());
+         result = (result*PRIME) + (int)(temp1 ^ (temp1 >>> 32));
+         result = (result*PRIME) + Arrays.deepHashCode(this.tags);
+         return result;
+     }
  }
  ```
