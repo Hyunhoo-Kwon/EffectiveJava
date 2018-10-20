@@ -34,6 +34,16 @@ public class EqualsAndHashCodeExample {
 
     }
 
+    @Override public int hashCode() {
+        final int PRIME = 59;
+        int result = 1;
+        final long temp1 = Double.doubleToLongBits(this.score);
+        result = (result*PRIME) + (this.name == null ? 43 : this.name.hashCode());
+        result = (result*PRIME) + (int)(temp1 ^ (temp1 >>> 32));
+        result = (result*PRIME) + Arrays.deepHashCode(this.tags);
+        return result;
+    }
+
     protected boolean canEqual(Object other) {
         return other instanceof EqualsAndHashCodeExample;
     }
